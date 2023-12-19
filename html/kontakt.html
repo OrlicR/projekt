@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-shop mobiteli</title>
+    <!--link rel="stylesheet" href="../css/still.css"-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+      function ispisiPodatke(){
+        let tel=document.getElementById("Telefon").innerHTML;
+        document.getElementById("ispis").innerHTML=tel;
+      }   
+
+      function Posalji(){
+        //alert("Poziva se funkcija");
+        let email = document.getElementById("email").value;
+        let poruka = document.getElementById("poruka").value;
+        const httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function(){
+          if (httpRequest.readyState==4){
+            document.getElementById("korisnik_unos").innerHTML=httpRequest.responseText;
+          }
+        }
+        httpRequest.open("GET", "../php/obrada.php?email=" +email+ "&poruka=" +poruka);
+        httpRequest.send();
+      }
+    </script>
+</head>
+
+
+<body>
+    <div class="w3-container w3-red">
+        <nav class="navigacija">
+            <div class="w3-bar w3-black">
+                 <a href="index.html" class="w3-bar-item w3-button">Početna stranica</a></li>
+                 <a href="sve_ponude.html" class="w3-bar-item w3-button">Sve ponude</a></li>
+                 <a href="kontakt.html" class="w3-bar-item w3-button">Kontakt</a></li>
+                 <a href="registracija.html" class="w3-bar-item w3-button">Registracija</a></li>
+            </div>
+        </nav>
+    </div>
+
+    <div class="w3-container w3-red">
+      <nav class="navigacija">
+        <div class="w3-bar w3-black w3-black">
+          <button class="w3-bar-item w3-button" onclick="openInfo('Telefon')">Telefon</button>
+          <button class="w3-bar-item w3-button" onclick="openInfo('Mail')">Mail</button>
+          <button class="w3-bar-item w3-button" onclick="openInfo('Adresa')">Adresa</button>
+        </div>
+      </nav>
+    </div>
+
+
+    <div id="Telefon" class="kontakt">
+        <h2>Naš broj telefona</h2>
+        <p>051 313 313</p>
+      </div>
+
+      
+      <div id="Mail" class="kontakt" style="display:none">
+        <h2>Naša e-mail adresa</h2>
+        <p>mail@kontakt.web</p>
+      </div>
+      
+
+      <div id="Adresa" class="kontakt" style="display:none">
+        <h2>Naša adresa</h2>
+        <p>Vukovarska 58, Rijeka</p>
+      </div>
+
+
+      <div class="w3-container">
+        Ako želite postaviti upit ili ostaviti poruku, kontaktirat ćemo Vas na unesenu e-mail adresu.
+        <form class="w3-red">
+        <label for="">Unesite Vašu e-mail adresu:</label>
+        <input type="email" name="" id="email" class="w3-input w3-border">
+        <label for="">Unesite poruku</label>
+        <textarea name="" id="poruka" class="w3-input w3-border"></textarea>
+        <input type="button" value="Pošalji" class="w3-btn w3-black" onclick="Posalji()">
+        </form>
+    </div>
+<div id="korisnik_unos">
+
+</div>
+      <script>
+        document.write("<div class='w3-container w3-black'>");
+        document.write("Web sjedište <i>Web-shop</i> izrađeno");
+        document.write("</div>");
+        ispisiPodatke();
+      </script>
+
+      <script>
+        function openInfo(Info) {
+          var i;
+          var x = document.getElementsByClassName("kontakt");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          document.getElementById(Info).style.display = "block";
+        }
+        </script>
+</body>
+</html> 
