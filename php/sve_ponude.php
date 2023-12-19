@@ -46,11 +46,11 @@
             <?php
             while($row = mysqli_fetch_array($res)){
                 echo "<tr>";
-                echo "<td>$row['Link']</td>";
-                echo "<td>$row['Naziv_pjesme']</td>";
-                echo "<td>$row['Izvodac']</td>";
-                echo "<td>$row['Zanr']</td>";
-                echo "</tr>"
+                echo "<td>".$row['Link']."</td>";
+                echo "<td>".$row['Naziv_pjesme']."</td>";
+                echo "<td>".$row['Izvodac']."</td>";
+                echo "<td>".$row['Zanr']."</td>";
+                echo "</tr>";
             }
             mysqli_close($conn);
             ?>
