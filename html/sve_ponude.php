@@ -40,7 +40,7 @@
 
                 <h2>Data</h2>
                 <?php
-                include 'sve_ponude.php';
+                include 'php/sve_ponude.php';
                 ?>
 
             </body>
