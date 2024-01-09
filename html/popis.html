@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <!--link rel="stylesheet" href="../css/still.css"-->
+    <title>Popis pjesama</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
-
 
 <body style="margin: 50px; ">
     <div class="w3-container w3-red">
         <nav class="navigacija">
             <div class="w3-bar w3-black">
-                 <a href="index.html" class="w3-bar-item w3-button">Početna stranica</a></li>
-                 <a href="sve_ponude.html" class="w3-bar-item w3-button">Popis pjesama</a></li>
-                 <a href="registracija.html" class="w3-bar-item w3-button">Registracija</a></li>
+                <a href="pocetna.html" class="w3-bar-item w3-button">Početna stranica</a>
+                <a href="popis.html" class="w3-bar-item w3-button">Popis pjesama</a>
             </div>
         </nav>
     </div>
 
-    <div lass="w3-container">
-        <h1 class="w3-center w3-animate-top">Pjesme</h1>
+    <div class="w3-container">
+        <h1 class="w3-center w3-animate-top" style="margin-top: 20px;">Pjesmee</h1>
         <table class="w3-table-all">
             <tr class="w3-red">
                 <th>Naziv pjesme</th>
@@ -32,25 +30,45 @@
             </tr>
         </table>
 
-        <form action="index.php" method="post">
-            <input type="text" id="link" placeholder="id">
-            <input type="text" ime="ime" placeholder="ime">
-            <input type="text" izvodac="izvodac" placeholder="izvodac">
-            <input type="text" zanr="zanr" placeholder="zanr">
+        <form action="add_song.php" method="post" class="w3-container w3-row-padding" style="margin-top: 20px;">
+            <div class="w3-col s12 m3">
+                <div class="w3-container w3-black w3-padding">
+                    <label class="w3-text-red">Link:</label>
+                </div>
+                <input type="text" name="link" class="w3-input w3-border" placeholder="" required>
+            </div>
+
+            <div class="w3-col s12 m3">
+                <div class="w3-container w3-black w3-padding">
+                    <label class="w3-text-red">Ime:</label>
+                </div>
+                <input type="text" name="ime" class="w3-input w3-border" placeholder="" required>
+            </div>
+
+            <div class="w3-col s12 m3">
+                <div class="w3-container w3-black w3-padding">
+                    <label class="w3-text-red">Izvođač:</label>
+                </div>
+                <input type="text" name="izvodac" class="w3-input w3-border" placeholder="" required>
+            </div>
+
+            <div class="w3-col s12 m3">
+                <div class="w3-container w3-black w3-padding">
+                    <label class="w3-text-red">Žanr:</label>
+                </div>
+                <input type="text" name="zanr" class="w3-input w3-border" placeholder="" required>
+            </div>
+
+            <div class="w3-container w3-center" style="margin-top: 20px;">
+                <button type="submit" class="w3-button w3-red">Dodaj Pjesmu</button>
+            </div>
         </form>
 
-        <html>
-            <head>
-                <title>Display data</title>
-            </head>
-            <body>
-
-                <h2>Data</h2>
-                <?php
-                include 'php/sve_ponude.php';
-                ?>
-
-            </body>
-        </html>
+        <h2>
+            <?php
+            include 'php/popis.php';
+            ?>
+        </h2>
+    </div>
 </body>
 </html>
