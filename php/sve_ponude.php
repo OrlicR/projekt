@@ -51,6 +51,20 @@
                 echo "<td>".$row['Izvodac']."</td>";
                 echo "<td>".$row['Zanr']."</td>";
                 echo "</tr>";
+
+                $id = $_post["link"];
+                $ime = $_post["ime"];
+                $izvodac = $_post["izvodac"];
+                $zanr = $_post["zanr"];
+
+                $sql ="INSERT INTO naziv (id,ime,izvodac,zanr) VALUES('$id','$ime','$izvodac','$zanr')";
+                $result = $db->query($sql);
+
+                if($result){
+                    echo "uneseno";
+                }else{
+                    echo "nije uneseno";
+                }
             }
             mysqli_close($conn);
             ?>
